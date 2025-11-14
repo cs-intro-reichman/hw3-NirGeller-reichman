@@ -29,9 +29,11 @@ public class LoanCalc {
 	// interest rate (as a percentage), the number of periods (n), and the periodical payment.
 	private static double endBalance(double loan, double rate, int n, double payment) {	
 		double owed = 0;
+		owed= loan;
 		for(int i=0; i<n; i++){
-			owed = (loan - payment) * (1.0 +(rate / 100));
-			loan = owed;
+			
+			owed = (owed - payment) * (1.0 +(rate / 100));
+			
 		}
 
 		return owed;
@@ -65,7 +67,7 @@ public class LoanCalc {
     public static double bisectionSolver(double loan, double rate, int n, double epsilon) {  
 		iterationCounter = 0;
         double L = loan / n; 
-        double H = loan * Math.pow(1.0 + (rate / 100.0), n); 
+        double H = loan * 1.2; 
         double g = (L + H) / 2.0;
 		
 
