@@ -114,20 +114,34 @@ public class Algebra {
 			int count1 = 0;
 			int count2 = 0;
 			if (x2<0&& x1<0){
-				for ( i=x2; i<0; i++){
-					count2++;
-				}
-				for (i=x1; i<0; i++){
-					count1++;
-				}
-				x2=count2;
-				x1=count1;
+				x1=Math.abs(x1);
+				x2=Math.abs(x2);
+				for ( i=0; newx>=x2; i++) {
+			newx=minus(newx,x2);
+		}
+		return i;
 			}
+
+
+			else if (x1<0){
+				int step1= 0;
+				int step2=0;
+				for ( i=0; newx<x2; i++) {
+			newx=plus(newx,x2);
+			step1=i;			
+		}
+		for ( int z=0; Math.abs(z)!=step1;z--) { 
+			step2=z;
+		}
+	return step2;
+}
+		
+         else{
 		for ( i=0; newx>=x2; i++) {
 			newx=minus(newx,x2);
 		}
 		return i;
-	}
+	}}
 
 	// Returns x1 % x2
 	public static int mod(int x1, int x2) {
