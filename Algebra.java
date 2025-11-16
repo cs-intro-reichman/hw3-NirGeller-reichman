@@ -15,7 +15,7 @@ public class Algebra {
    		System.out.println(pow(3,5));      // 3^5
    		System.out.println(div(12,3));   // 12 / 3    
    		System.out.println(div(5,5));    // 5 / 5  
-   		System.out.println(div(25,7));   // 25 / 7
+   		System.out.println(div(-10,3));   // 25 / 7
    		System.out.println(mod(25,7));   // 25 % 7
    		System.out.println(mod(120,6));  // 120 % 6    
    		System.out.println(sqrt(36));
@@ -129,6 +129,7 @@ public class Algebra {
 			else if (x1<0&& x2>0){
 				int step1= 0;
 				int step2=0;
+				newx=x1;
 				for ( i=0; newx<=x2; i++) {
 			newx=plus(newx,x2);
 			step1=i;			
