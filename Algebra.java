@@ -49,6 +49,17 @@ public class Algebra {
 				x1++;
 				x2++;
 			}
+			if (x1==0) {//חדש
+				
+				for (int i=0; i<x2; i++) {
+					x1= x1--;
+				}
+				
+				return x1;
+				
+			}
+
+				
 		}
 		return x1;
 	}
@@ -68,25 +79,41 @@ public class Algebra {
 				}
 				x2=count2;
 				x1=count1;
+				
 			}
 			//else if (x2<0 && x1>0){
 				//for (int i=x2; i<0; i++){
 				//	count2++;
 				//}
 				//x2=count2;}
-			//else if (x1<0 && x2>0){
-				//for (int i=x1; i<0; i++){
-				//	count1++;
-				//}
-				//x1=count1;
+			else if (x1<0 && x2>0){
+				for (int i=x1; i<0; i++){
+					count1++;
+				}
+				x1=count1;
+			}
+			//for (int i=0; i<x2; i++) {
+				
+				//newx=plus(newx,x1);
+			//}
+			//newx=minus(0,newx);
 			//}
 
+				if (x1<0 && x2>0) {
+					for (int i=0; i<x2; i++) {
 				
+				newx=plus(newx,x1);
+				newx=minus(0,newx);
+				
+			}
+				}
+			else{
 
 			for (int i=0; i<x2; i++) {
 				
 				newx=plus(newx,x1);
 			}
+		}
 			
 		
 		return newx;
@@ -98,6 +125,14 @@ public class Algebra {
 		if (n==0) {
 			newx=1;
 		}
+		else if (x<0&& mod(n, 2)!=0){//אי זוגי ושלילי
+			x=Math.abs(x);
+			for (int i=1; i<n; i++) {
+				newx=times(newx,x);
+				newx=minus(0,newx);
+		}
+	}
+			
 		else{
 		
 			for (int i=1; i<n; i++) {
