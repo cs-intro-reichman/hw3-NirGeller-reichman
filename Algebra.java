@@ -110,23 +110,26 @@ public class Algebra {
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
 			int i;
-			int newx = x1;
+			int newx=0;
 			int count1 = 0;
 			int count2 = 0;
+			int stepper=0;
 			if (x2<0&& x1<0){
-				x1=Math.abs(x1);
+			
+				newx=Math.abs(x1);
 				x2=Math.abs(x2);
-				for ( i=0; newx>=x2; i++) {
+				for ( i=1; newx>=x2; i++) {
 			newx=minus(newx,x2);
+			stepper=i;
 		}
-		return i;
+		return stepper;
 			}
 
 
 			else if (x1<0){
 				int step1= 0;
 				int step2=0;
-				for ( i=0; newx<x2; i++) {
+				for ( i=0; newx<=x2; i++) {
 			newx=plus(newx,x2);
 			step1=i;			
 		}
