@@ -57,6 +57,32 @@ public class Algebra {
 	public static int times(int x1, int x2) {
 		
 			int newx =0;
+			int count1 = 0;
+			int count2 = 0;
+			if (x2<0&& x1<0){
+				for (int i=x2; i<0; i++){
+					count2++;
+				}
+				for (int i=x1; i<0; i++){
+					count1++;
+				}
+				x2=count2;
+				x1=count1;
+			}
+			//else if (x2<0 && x1>0){
+				//for (int i=x2; i<0; i++){
+				//	count2++;
+				//}
+				//x2=count2;}
+			//else if (x1<0 && x2>0){
+				//for (int i=x1; i<0; i++){
+				//	count1++;
+				//}
+				//x1=count1;
+			//}
+
+				
+
 			for (int i=0; i<x2; i++) {
 				
 				newx=plus(newx,x1);
@@ -69,11 +95,15 @@ public class Algebra {
 	// Returns x^n (for n >= 0)
 	public static int pow(int x, int n) {
 		int newx=x;
+		if (n==0) {
+			newx=1;
+		}
+		else{
 		
 			for (int i=1; i<n; i++) {
 				newx=times(newx,x);
 		}
-		 
+	}
 		return newx;
 }
 
@@ -81,6 +111,18 @@ public class Algebra {
 	public static int div(int x1, int x2) {
 			int i;
 			int newx = x1;
+			int count1 = 0;
+			int count2 = 0;
+			if (x2<0&& x1<0){
+				for ( i=x2; i<0; i++){
+					count2++;
+				}
+				for (i=x1; i<0; i++){
+					count1++;
+				}
+				x2=count2;
+				x1=count1;
+			}
 		for ( i=0; newx>=x2; i++) {
 			newx=minus(newx,x2);
 		}
