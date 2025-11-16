@@ -126,7 +126,7 @@ public class Algebra {
 			}
 
 
-			else if (x1<0){
+			else if (x1<0&& x2>0){
 				int step1= 0;
 				int step2=0;
 				for ( i=0; newx<=x2; i++) {
@@ -140,6 +140,7 @@ public class Algebra {
 }
 		
          else{
+		newx=x1;
 		for ( i=0; newx>=x2; i++) {
 			newx=minus(newx,x2);
 		}
