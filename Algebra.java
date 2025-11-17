@@ -15,7 +15,7 @@ public class Algebra {
    		System.out.println(pow(3,5));      // 3^5
    		System.out.println(div(12,3));   // 12 / 3    
    		System.out.println(div(5,5));    // 5 / 5  
-   		System.out.println(div(25,7));   // 25 / 7
+   		System.out.println(div(-10,3));   // 25 / 7
    		System.out.println(mod(25,7));   // 25 % 7
    		System.out.println(mod(120,6));  // 120 % 6    
    		System.out.println(sqrt(36));
@@ -25,43 +25,184 @@ public class Algebra {
 
 	// Returns x1 + x2
 	public static int plus(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		while (x2!=0) {
+			while (x2>0) {
+				x1++;
+			x2--;
+			}
+			while (x2<0) {
+				x1--;
+				x2++;
+			}
+		}
+		return x1;
 	}
 
 	// Returns x1 - x2
 	public static int minus(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		while (x2!=0) {
+			while (x2>0) {
+				x2--;
+			    x1--;
+			}
+			while (x2<0) {
+				x1++;
+				x2++;
+			}
+			if (x1==0) {//חדש
+				
+				for (int i=0; i<x2; i++) {
+					x1= x1--;
+				}
+				
+				return x1;
+				
+			}
+
+				
+		}
+		return x1;
 	}
 
 	// Returns x1 * x2
 	public static int times(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		
+			int newx =0;
+			int count1 = 0;
+			int count2 = 0;
+			if (x2<0&& x1<0){
+				for (int i=x2; i<0; i++){
+					count2++;
+				}
+				for (int i=x1; i<0; i++){
+					count1++;
+				}
+				x2=count2;
+				x1=count1;
+				
+			}
+			//else if (x2<0 && x1>0){
+				//for (int i=x2; i<0; i++){
+				//	count2++;
+				//}
+				//x2=count2;}
+			else if (x1<0 && x2>0){
+				for (int i=x1; i<0; i++){
+					count1++;
+				}
+				x1=count1;
+			}
+			//for (int i=0; i<x2; i++) {
+				
+				//newx=plus(newx,x1);
+			//}
+			//newx=minus(0,newx);
+			//}
+
+				if (x1<0 && x2>0) {
+					for (int i=0; i<x2; i++) {
+				
+				newx=plus(newx,x1);
+				newx=minus(0,newx);
+				
+			}
+				}
+			else{
+
+			for (int i=0; i<x2; i++) {
+				
+				newx=plus(newx,x1);
+			}
+		}
+			
+		
+		return newx;
 	}
 
 	// Returns x^n (for n >= 0)
 	public static int pow(int x, int n) {
-		// Replace the following statement with your code
-		return 0;
+		int newx=x;
+		if (n==0) {
+			newx=1;
+		}
+		else if (x<0&& mod(n, 2)!=0){//אי זוגי ושלילי
+			x=Math.abs(x);
+			for (int i=1; i<n; i++) {
+				newx=times(newx,x);
+				newx=minus(0,newx);
+		}
 	}
+			
+		else{
+		
+			for (int i=1; i<n; i++) {
+				newx=times(newx,x);
+		}
+	}
+		return newx;
+}
 
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
-	}
+			int i;
+			int newx=0;
+			int count1 = 0;
+			int count2 = 0;
+			int stepper=0;
+			if (x2<0&& x1<0){
+			
+				newx=Math.abs(x1);
+				x2=Math.abs(x2);
+				for ( i=1; newx>=x2; i++) {
+			newx=minus(newx,x2);
+			stepper=i;
+		}
+		return stepper;
+			}
+
+
+			else if (x1<0&& x2>0){
+				int step1= 0;
+				int step2=0;
+				newx=x1;
+				for ( i=0; newx<=x2; i++) {
+			newx=plus(newx,x2);
+			step1=i;			
+		}
+		for ( int z=0; Math.abs(z)!=step1;z--) { 
+			step2=z;
+		}
+	return step2;
+}
+		
+         else{
+		newx=x1;
+		for ( i=0; newx>=x2; i++) {
+			newx=minus(newx,x2);
+		}
+		return i;
+	}}
 
 	// Returns x1 % x2
 	public static int mod(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		int i;
+			int newx = x1;
+		for ( i=0; newx>=x2; i++) {
+			newx=minus(newx,x2);
+		}
+		return newx;
 	}	
 
 	// Returns the integer part of sqrt(x) 
 	public static int sqrt(int x) {
-		// Replace the following statement with your code
-		return 0;
-	}	  	  
-}
+		int thenumber=0;
+		
+		for (int i=x; i > 0 ; i--) {
+			if (times(i,i) == x) {
+				thenumber=i;
+	}
+	
+	
+	}
+     	return thenumber;
+}}
